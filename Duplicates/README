@@ -1,0 +1,37 @@
+Name: Nigina Daniyarova
+How to compile:
+How to run it: java Main <filename.csv>
+Known Bugs and Limitations: the number of dublicates is too big because given
+attributes are not very specific and can be relevant to nunber of people.
+Discussion: Attributes used in the Human object are sex, race, dob, eye color,
+hair color, age, weight and height. These qualities are the most describtive
+from the list that are most likely not to change over the year. Everythiong
+else including location can change.
+1. builtinSortDeduplication() - 26674
+   allPairsDeduplication() - 19887
+   quickSortDeduplicaton() - 457	
+   hashLinearDeduplication() - 29
+   hashDoubleDeduplication() - 25
+3. The most efficient method for deduplication is hashDoubleDeduplication. It
+takes only 25 miliseconds to run for 6000 entries. It is not that different
+from the hashLinearDeduplication() which is 29. hashDoubleDeduplication and
+hashLinearDeduplication use single for loop in the GetData class to store the
+data from the file and one while loop in a fileSlot method in the ProbeHashMap
+class. However, because of the way DoublehashMap is implemented, the collisions
+occur very rarely, therefore, the loops are not being used, which makes the
+complexity of the put() method be O(1). Another benefit of the methods is that
+removal of the duplicates is happening on the fly.
+
+The most efficient sorting method is quickSort, which is almost 60 times
+faster than the built in Collection.sort method. The reason for that is
+Collection.sort() is O(n*log(n)) and, in addition, builtinSortDeduplication
+uses 2 nested for loops to remove the fuplicates from the file which is O(n^2)
+In contrast, QuickSort is also O(n*log(n)), but there are no loops except
+recursion and the duplicates are removed ones the method merges all the
+arraylists.
+
+As I said previously DoubleHash is the fastest way to deduplicate; however,
+LinearHash is just couple of milliseconds slower. The reason why it is slower is
+because Double hahsing allows smaller amount of collisions and therefore less
+searching for a free space. 
+   
